@@ -3,35 +3,35 @@ from collections import Counter
 from adventofcode import AoC
 
 
-def part1(line: list[str]):
+def part1(lines: list[str]):
     list1 = []
     list2 = []
-    for i in line:
-        num1, num2 = i.split()
+    for line in lines:
+        num1, num2 = line.split()
         list1.append(int(num1))
         list2.append(int(num2))
     list1 = sorted(list1)
     list2 = sorted(list2)
-    distances = 0
+    result = 0
     for i in range(len(list1)):
-        distances += abs(list1[i] - list2[i])
+        result += abs(list1[i] - list2[i])
 
-    return distances
+    return result
 
 
-def part2(line: list[str]):
+def part2(lines: list[str]):
     list1 = []
     cntr = Counter()
-    for i in line:
-        num1, num2 = i.split()
+    for line in lines:
+        num1, num2 = line.split()
         list1.append(int(num1))
         cntr.update([int(num2)])
 
-    distances = 0
+    result = 0
     for i in list1:
-        distances += i * cntr[i]
+        result += i * cntr[i]
 
-    return distances
+    return result
 
 
 aoc = AoC(part_1=part1, part_2=part2)

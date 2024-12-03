@@ -1,10 +1,10 @@
 from adventofcode import AoC
 
 
-def part1(line: list[str]):
-    safe = 0
-    for l in line:
-        levels = list(map(int, l.split()))
+def part1(lines: list[str]):
+    result = 0
+    for line in lines:
+        levels = list(map(int, line.split()))
         incr = levels[0] > levels[1]
         for i in range(len(levels) - 1):
             if (
@@ -17,9 +17,9 @@ def part1(line: list[str]):
             if not incr and levels[i] > levels[i + 1]:
                 break
         else:
-            safe += 1
+            result += 1
 
-    return safe
+    return result
 
 
 def check(levels: list[int], dempner: bool):
@@ -53,14 +53,14 @@ def check(levels: list[int], dempner: bool):
         return True
 
 
-def part2(line: list[str]):
-    safe = 0
-    for l in line:
-        levels = list(map(int, l.split()))
+def part2(lines: list[str]):
+    result = 0
+    for line in lines:
+        levels = list(map(int, line.split()))
         if check(levels, False):
-            safe += 1
+            result += 1
 
-    return safe
+    return result
 
 
 aoc = AoC(part_1=part1, part_2=part2)
