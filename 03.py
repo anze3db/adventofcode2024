@@ -4,27 +4,27 @@ from adventofcode import AoC
 
 
 def part1(lines: list[str]):
-    regex = re.compile(r"(mul\((\d{1,3}),(\d{1,3})\))")
+    regex = re.compile(r"mul\((\d{1,3}),(\d{1,3})\)")
     result = 0
     for line in lines:
         matches = regex.findall(line)
-        result += sum(int(match[1]) * int(match[2]) for match in matches)
+        result += sum(int(x) * int(y) for x, y in matches)
     return result
 
 
 def part2(lines: list[str]):
-    regex = re.compile(r"(don\'t\(\))|(do\(\))|(mul\((\d{1,3}),(\d{1,3})\))")
+    regex = re.compile(r"(don\'t\(\))|(do\(\))|mul\((\d{1,3}),(\d{1,3})\)")
     result = 0
     enabled = True
     for line in lines:
         matches = regex.findall(line)
-        for match in matches:
-            if match[0]:
+        for dont, do, x, y in matches:
+            if dont:
                 enabled = False
-            elif match[1]:
+            elif do:
                 enabled = True
             elif enabled:
-                result += int(match[3]) * int(match[4])
+                result += int(x) * int(y)
     return result
 
 
