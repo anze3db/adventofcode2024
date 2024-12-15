@@ -27,14 +27,14 @@ def get_corners(x, y, grid):
     ]
     return sum(
         [
-            N and W and not NW,
-            N and E and not NE,
-            S and W and not SW,
-            S and E and not SE,
-            not (N or W),
-            not (N or E),
-            not (S or W),
-            not (S or E),
+            N and W and not NW,  # outer corners like:
+            N and E and not NE,  # . 1 .
+            S and W and not SW,  # 1 X .
+            S and E and not SE,  # . . .
+            not N and not W,  # inner corners like:
+            not N and not E,  # . . .
+            not S and not W,  # . X 1
+            not S and not E,  # . 1 .
         ]
     )
 
