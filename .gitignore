@@ -10,4 +10,4 @@ wheels/
 .venv
 
 # Cache used by adventofcode
-.cache
+.cache*
