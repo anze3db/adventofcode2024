@@ -1,12 +1,16 @@
 from adventofcode import AoC
 
 
-def part1(lines: list[str]):
+def part1(lines: str):
     result = 0
-    grid = {(x, y): c for y, line in enumerate(lines) for x, c in enumerate(line)}
+    grid = {
+        (x, y): c
+        for y, line in enumerate(lines.splitlines())
+        for x, c in enumerate(line)
+    }
     search = "XMAS"
-    for y in range(len(lines)):
-        for x in range(len(lines[y])):
+    for y in range(len(lines.splitlines())):
+        for x in range(len(lines.splitlines()[y])):
             for dx, dy in (
                 (1, 0),
                 (0, 1),
@@ -25,11 +29,15 @@ def part1(lines: list[str]):
     return result
 
 
-def part2(lines: list[str]):
+def part2(lines: str):
     result = 0
-    grid = {(x, y): c for y, line in enumerate(lines) for x, c in enumerate(line)}
-    for y in range(len(lines)):
-        for x in range(len(lines[y])):
+    grid = {
+        (x, y): c
+        for y, line in enumerate(lines.splitlines())
+        for x, c in enumerate(line)
+    }
+    for y in range(len(lines.splitlines())):
+        for x in range(len(lines.splitlines()[y])):
             if grid.get((x, y)) != "A":
                 continue
             if grid.get((x + 1, y + 1)) not in ("M", "S"):

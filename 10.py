@@ -43,7 +43,8 @@ def bfs2(grid, starts):
     return score
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     grid = {}
     starts = set()
     for y, line in enumerate(lines):
@@ -62,7 +63,8 @@ def part1(lines: list[str]):
     return result
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     grid = {}
     starts = set()
     for y, line in enumerate(lines):

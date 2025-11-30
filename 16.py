@@ -1,5 +1,5 @@
-from collections import defaultdict
 import heapq
+from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Generator
 
@@ -9,6 +9,7 @@ E = (1, 0)
 W = (-1, 0)
 N = (0, 1)
 S = (0, -1)
+
 
 def draw(grid, path):
     max_x = max(x for x, y in grid.keys())
@@ -21,6 +22,7 @@ def draw(grid, path):
                 print(grid.get((x, y), "#"), end="")
 
         print()
+
 
 def rotate(current) -> Generator[tuple[int, int], None, None]:
     if current == E:
@@ -39,7 +41,7 @@ def rotate(current) -> Generator[tuple[int, int], None, None]:
 
 @dataclass(order=True)
 class State:
-    pos: tuple[int, int] 
+    pos: tuple[int, int]
     direction: tuple[int, int]
     path: tuple[tuple[int, int]] = field(default_factory=tuple)
 
@@ -67,7 +69,8 @@ class State:
         )
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     start = (0, 0)
     end = (0, 0)
     walls = set()
@@ -100,6 +103,7 @@ def part1(lines: list[str]):
             new_state = (score + 1000, State(current.pos, next_direction))
             heapq.heappush(to_visit, new_state)
 
+
 def count_parents(current: State, parents) -> set[tuple[int, int]]:
     visited = set([current.pos])
     visited_p = set([current])
@@ -112,10 +116,8 @@ def count_parents(current: State, parents) -> set[tuple[int, int]]:
     return visited
 
 
-    
-
-
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     start = (0, 0)
     end = (0, 0)
     walls = set()
@@ -138,6 +140,7 @@ def part2(lines: list[str]):
         score, current = heapq.heappop(to_visit)
         pos, direction = current.pos, current.direction
         if pos == end:
+
             def walk(state):
                 pos = state.pos
                 if pos == start:
@@ -146,10 +149,10 @@ def part2(lines: list[str]):
                 for prev_state in prev_states[state]:
                     for path in walk(prev_state):
                         yield path + [state]
-                
+
             draw(grid, {pos.pos for path in walk(current) for pos in path})
             return len({pos.pos for path in walk(current) for pos in path})
-        
+
         for neighbor in ((0, 1), (0, -1), (1, 0), (-1, 0)):
             next_pos = (pos[0] + neighbor[0], pos[1] + neighbor[1])
             if next_pos in walls:
@@ -163,7 +166,7 @@ def part2(lines: list[str]):
                 new_score = score + 1001
             else:
                 new_score = score + 2001
-            
+
             prev_score = pathless_score.get(State(next_pos, neighbor), float("inf"))
             if new_score <= prev_score:
                 pathless_score[State(next_pos, neighbor)] = new_score
@@ -173,7 +176,6 @@ def part2(lines: list[str]):
                     prev_states[next_state].add(current)
                 else:
                     prev_states[next_state] = set([current])
-
 
 
 aoc = AoC(part_1=part1, part_2=part2)

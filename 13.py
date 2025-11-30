@@ -93,7 +93,7 @@ def part2(inp: str):
     return result
 
 
-aoc = AoC(part_1_no_splitlines=part1, part_2_no_splitlines=part2)
+aoc = AoC(part_1=part1, part_2=part2)
 
 inp = """Button A: X+94, Y+34
 Button B: X+22, Y+67

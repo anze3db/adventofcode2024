@@ -45,7 +45,7 @@ def part2(lines: str):
     return result
 
 
-aoc = AoC(part_1_no_splitlines=part1, part_2_no_splitlines=part2)
+aoc = AoC(part_1=part1, part_2=part2)
 
 inp = """47|53
 97|13

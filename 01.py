@@ -3,10 +3,10 @@ from collections import Counter
 from adventofcode import AoC
 
 
-def part1(lines: list[str]):
+def part1(lines: str):
     list1 = []
     list2 = []
-    for line in lines:
+    for line in lines.splitlines():
         num1, num2 = line.split()
         list1.append(int(num1))
         list2.append(int(num2))
@@ -19,10 +19,10 @@ def part1(lines: list[str]):
     return result
 
 
-def part2(lines: list[str]):
+def part2(lines: str):
     list1 = []
     cntr = Counter()
-    for line in lines:
+    for line in lines.splitlines():
         num1, num2 = line.split()
         list1.append(int(num1))
         cntr.update([int(num2)])

@@ -1,7 +1,8 @@
 from adventofcode import AoC
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     obstacles = set()
     guard = (0, 0)
     grid = set()
@@ -63,7 +64,8 @@ def draw(grid, guard, obstacles, new_obstacle):
     print()
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     obstacles = set()
     guard = (0, 0)
     grid = set()

@@ -1,5 +1,6 @@
-from adventofcode import AoC
 import heapq
+
+from adventofcode import AoC
 
 
 def draw(grid, max_c):
@@ -12,7 +13,8 @@ def draw(grid, max_c):
         print()
 
 
-def part1(lines: list[str], additional=0):
+def part1(inp: str, additional=0):
+    lines = inp.splitlines()
     result = 0
     corrupted = []
     for line in lines:
@@ -58,13 +60,14 @@ def part1(lines: list[str], additional=0):
     return True
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     if len(lines) > 1000:
         skip = 1024
     else:
         skip = 12
     for i in range(skip, len(lines)):
-        if part1(lines[:i] + lines[i + 1 :], additional=i - skip) is True:
+        if part1("\n".join(lines[:i] + lines[i + 1 :]), additional=i - skip) is True:
             return lines[i - 1]
 
 

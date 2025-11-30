@@ -1,9 +1,9 @@
 from adventofcode import AoC
 
 
-def part1(lines: list[str]):
+def part1(lines: str):
     result = 0
-    for line in lines:
+    for line in lines.splitlines():
         levels = list(map(int, line.split()))
         incr = levels[0] > levels[1]
         for i in range(len(levels) - 1):
@@ -53,9 +53,9 @@ def check(levels: list[int], dempner: bool):
         return True
 
 
-def part2(lines: list[str]):
+def part2(lines: str):
     result = 0
-    for line in lines:
+    for line in lines.splitlines():
         levels = list(map(int, line.split()))
         if check(levels, False):
             result += 1

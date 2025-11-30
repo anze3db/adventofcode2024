@@ -22,7 +22,8 @@ def draw(grid, antennas, antinodes):
     print()
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     antennas = {}
     grid = set()
     for y, line in enumerate(lines):
@@ -50,7 +51,8 @@ def part1(lines: list[str]):
     return len(antinodes)
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     antennas = {}
     grid = set()
     for y, line in enumerate(lines):

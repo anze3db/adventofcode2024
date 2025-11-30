@@ -3,8 +3,9 @@ import heapq
 from adventofcode import AoC
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
     """Inneficient, but I didn't bother fixing it once I solved p2"""
+    lines = inp.splitlines()
     result = 0
     walls = set()
     start = (0, 0)
@@ -63,7 +64,8 @@ def part1(lines: list[str]):
     return len([r for r in saved if r >= 100])
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     walls = set()
     start = (0, 0)
     end = (0, 0)
@@ -101,7 +103,6 @@ def part2(lines: list[str]):
 
 
 aoc = AoC(part_1=part1, part_2=part2)
-
 inp = """\
 ###############
 #...#...#.....#

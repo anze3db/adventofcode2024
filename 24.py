@@ -48,11 +48,10 @@ def part1(lines: str):
 
 def part2(lines: str):
     # ¯\_(ツ)_/¯
+    pass
 
-    
 
-
-aoc = AoC(part_1_no_splitlines=part1, part_2_no_splitlines=part2)
+aoc = AoC(part_1=part1, part_2=part2)
 
 inp = """\
 x00: 1
@@ -122,8 +121,8 @@ aoc.assert_p1(
     expected=2024,
 )
 aoc.submit_p1()
-aoc.assert_p2(
-    inp,
-    expected=None,
-)
-aoc.submit_p2()
+# aoc.assert_p2(
+#     inp,
+#     expected=None,
+# )
+# aoc.submit_p2()

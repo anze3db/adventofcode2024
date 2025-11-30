@@ -94,7 +94,8 @@ def dfs(path: str, level: int):
     return result
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     result = 0
 
     for code in lines:
@@ -103,7 +104,8 @@ def part1(lines: list[str]):
     return result
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     result = 0
 
     for code in lines:

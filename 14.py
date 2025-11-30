@@ -29,7 +29,8 @@ def draw(robots):
     print()
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     robots = []
     for line in lines:
         m = re.match(r"p=(-?\d+),(-?\d+) v=(-?\d+),(-?\d+)", line)
@@ -72,7 +73,8 @@ def part1(lines: list[str]):
     return multi
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     robots = []
     for line in lines:
         m = re.match(r"p=(-?\d+),(-?\d+) v=(-?\d+),(-?\d+)", line)

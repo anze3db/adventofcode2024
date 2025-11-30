@@ -2,7 +2,8 @@ import networkx as nx
 from adventofcode import AoC
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     inp = [set((line.split("-"))) for line in lines]
     g = nx.Graph()
     for a, b in inp:
@@ -12,7 +13,8 @@ def part1(lines: list[str]):
     return len([g for g in cliques if any(j for j in g if j[0] == "t")])
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     inp = [set((line.split("-"))) for line in lines]
     g = nx.Graph()
     for a, b in inp:

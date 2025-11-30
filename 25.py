@@ -46,11 +46,11 @@ def part1(lines: str):
     return result
 
 
-def part2(lines: list[str]):
+def part2(lines: str):
     pass
 
 
-aoc = AoC(part_1_no_splitlines=part1, part_2=part2)
+aoc = AoC(part_1=part1, part_2=part2)
 
 inp = """\
 #####

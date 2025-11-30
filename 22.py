@@ -19,7 +19,8 @@ def evolve(secret_num: int) -> int:
     return secret_num
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     result = 0
     for line in lines:
         secret_num = int(line)
@@ -34,7 +35,8 @@ class Buyer:
     seq_price: dict[tuple[int, int, int, int], int]
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     buyers: list[Buyer] = []
     for line in lines:
         secret_num = evolve(int(line))

@@ -23,7 +23,8 @@ def recursive_eval(
     return False
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     result = 0
     for line in lines:
         value, numbers = line.split(": ")
@@ -34,7 +35,8 @@ def part1(lines: list[str]):
     return result
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     result = 0
     for line in lines:
         value, numbers = line.split(": ")

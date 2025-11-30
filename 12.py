@@ -79,7 +79,8 @@ class Cluster:
         return new_nodes
 
 
-def part1(lines: list[str]):
+def part1(inp: str):
+    lines = inp.splitlines()
     result = 0
     grid = {}
     for y, line in enumerate(lines):
@@ -106,7 +107,8 @@ def part1(lines: list[str]):
     return result
 
 
-def part2(lines: list[str]):
+def part2(inp: str):
+    lines = inp.splitlines()
     result = 0
     grid = {}
     for y, line in enumerate(lines):

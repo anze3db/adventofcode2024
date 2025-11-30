@@ -69,7 +69,7 @@ class Space:
 def print_disk(disk: list[File | Space]):
     for f_or_s in sorted(disk, key=lambda s: s.pos):
         print(
-            f"{f_or_s.pos=}, {f_or_s.size=}, {'space' if isinstance(f_or_s, Space) else f'{f_or_s.file_id}' }"
+            f"{f_or_s.pos=}, {f_or_s.size=}, {'space' if isinstance(f_or_s, Space) else f'{f_or_s.file_id}'}"
         )
     print()
 
@@ -109,7 +109,7 @@ def part2(line: str):
     return result
 
 
-aoc = AoC(part_1_no_splitlines=part1, part_2_no_splitlines=part2)
+aoc = AoC(part_1=part1, part_2=part2)
 
 inp = """2333133121414131402"""
 aoc.assert_p1(
